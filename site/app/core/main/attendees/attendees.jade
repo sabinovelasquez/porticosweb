@@ -1,0 +1,22 @@
+.container
+  .table-responsive
+  table.table.table-hover
+    thead
+      tr
+        td ID
+        td Nombre
+        td Título
+        td Teléfono
+        td Email
+        td Ticket ID
+        td Código Ticket
+    tbody
+      tr(ng-repeat='user in attendees.attendees')
+        td {{user.id}}
+        td {{user.first_name}} {{user.last_name}}
+        td {{user.title}}
+        td {{user.phone}}
+        td
+          a(href='mailto:{{user.email}}'){{user.email}}
+        td {{user.tickets[0].ticket_id}}
+        td {{user.tickets[0].code}}
