@@ -11,6 +11,7 @@ module.exports = () => {
   require('angular-scroll');
   require('angular-ui-router');
   require('angular-ui-bootstrap');
+  require('angular-smart-table');
   require('ngtouch');
   require('ng-parallax');
   require('font-awesome-webpack');

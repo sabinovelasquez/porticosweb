@@ -1,22 +1,35 @@
 .container
   .table-responsive
-  table.table.table-hover
+  table.table.table-hover(st-table='attendees.displayedCollection', st-safe-src='attendees.rowCollection')
     thead
       tr
-        td ID
-        td Nombre
-        td Título
-        td Teléfono
-        td Email
-        td Ticket ID
-        td Código Ticket
-    tbody
-      tr(ng-repeat='user in attendees.attendees')
-        td {{user.id}}
-        td {{user.first_name}} {{user.last_name}}
-        td {{user.title}}
-        td {{user.phone}}
+        th(colspan=8)
+          input(input st-search='', class='form-control', placeholder='Búsqueda global (nombre, apellido, código, etc.)', type='text')
+      tr
+        th(st-sort='id', st-sort-default='true') ID
+        th(st-sort='first_name') Nombre
+        th(st-sort='last_name') Apellido
+        th(st-sort='title') Título
+        th(st-sort='phone') Teléfono
+        th(st-sort='email') Email
+        th(st-sort='tickets[0].ticket_id') Ticket ID
+        th(st-sort='tickets[0].code') Código Ticket
+    tbody(ng-show='!attendees.isLoading')
+      tr(ng-repeat='row in attendees.displayedCollection')
+        td {{row.id}}
+        td {{row.first_name}}
+        td {{row.last_name}}
         td
-          a(href='mailto:{{user.email}}'){{user.email}}
-        td {{user.tickets[0].ticket_id}}
-        td {{user.tickets[0].code}}
+          span(ng-show='row.title') {{row.title}}
+          span(ng-show='!row.title') -
+        td
+          span(ng-show='row.phone') {{row.phone}}
+          span(ng-show='!row.phone') -
+        td
+          a(href='mailto:{{row.email}}'){{row.email}}
+        td {{row.tickets[0].ticket_id}}
+        td {{row.tickets[0].code}}
+    tbody(ng-show='attendees.isLoading')
+      tr
+        td.text-center(colspan=8)
+          .i.fa.fa-spinner.fa-pulse

@@ -7,8 +7,10 @@ export default ngModule => {
       scope: {},
       controllerAs: 'attendees',
       controller: function attendeesCtrl() {
+        this.isLoading = true;
         welcuApiService.getAttendees().then( (resp) => {
-          this.attendees = resp.data;
+          this.isLoading = false;
+          this.rowCollection = resp.data;
         });
       },
     };

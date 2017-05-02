@@ -3,9 +3,11 @@
 @import './core/css/common';
 @import './core/css/logo';
 
-// @import url(https://fonts.googleapis.com/css?family=Cinzel:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-body, html{
+body,
+html{
+  font-family: 'Montserrat', sans-serif;
   height: 100%;
 }
 
