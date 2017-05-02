@@ -3,7 +3,7 @@ export default ngModule => {
     const service = {
       getAttendees: () => {
         return $http({
-          url: `http://www.sabino.cl/clients/welcuapi/attendes.json`,
+          url: `attendes.json`,
         });
       },
     };
