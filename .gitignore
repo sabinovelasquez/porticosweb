@@ -4,3 +4,4 @@ debug.log
 npm-debug.log
 .DS_Store
 build
+fbsettings.js
