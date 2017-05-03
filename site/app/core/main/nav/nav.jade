@@ -8,6 +8,11 @@
           .logo
         .navbar-brand.pull-left.hidden-sm.hidden-md.hidden-lg
       .collapse.navbar-collapse(ng-class='{"in":navCollapsed}')
+        a.navbar-brand
+          i.fa.fa-bullseye
+          |   Fleg (beta)
         ul.nav.navbar-nav
           li
-            a(du-smooth-scroll, duration='800', href='#fleg') Fleg (beta)
+            a(ui-sref='main') Invitados
+          li
+            a(ui-sref='event') Dispositivos

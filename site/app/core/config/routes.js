@@ -8,6 +8,12 @@ export default ngModule => {
         template: require('../main/main.jade'),
         controller: 'MainCtrl',
         controllerAs: 'main',
+      })
+      .state('event', {
+        url: '/event',
+        template: require('../main/event.jade'),
+        controller: 'EventCtrl',
+        controllerAs: 'event',
       });
     }
   );

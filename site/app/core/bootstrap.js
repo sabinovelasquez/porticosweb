@@ -1,4 +1,5 @@
 require('./vendor')();
+require('./config/fbsettings');
 
 const ngModule = angular.module('app', [
   'duScroll',
@@ -10,6 +11,7 @@ const ngModule = angular.module('app', [
   'ngTouch',
   'ui.bootstrap',
   'ui.router',
+  'firebase',
 ]);
 
 require('./config')(ngModule);

@@ -1,0 +1,51 @@
+nav-bar
+#devices.container
+  h3 Lista de Dispositivos
+  .panel.panel-default(ng-repeat='(key, device) in event.devices')
+    .panel-heading(ng-click='navCollapsed=!navCollapsed')
+      .i.fa.fa-tablet
+      |  {{key | limitTo: -4}}
+    .panel-body(ng-show='!navCollapsed')
+      h3 Configuración actual:
+      table.table.table-bordered
+        thead
+          tr
+            th Evento
+            th Fecha - Hora
+            th Texto - Hora
+            th Lugar
+        tbody
+          tr
+            td {{device.settings.event}}
+            td {{device.settings.eventHour}}
+            td {{device.settings.note}}
+            td {{device.settings.where}}
+      h3 Registros:
+      table.table.table-hover.table-bordered(ng-show='device.registers')
+        thead
+          tr
+            th
+              .i.fa.fa-qrcode
+              |  QR
+            th
+              .i.fa.fa-bullhorn
+              |  Evento
+            th
+              .i.fa.fa-calendar
+              |  Día
+            th
+              .i.fa.fa-map-marker
+              |  Lugar
+            th
+              .i.fa.fa-clock-o
+              |  Hora
+        tbody
+          tr(ng-repeat='user in device.registers')
+            td {{user.code}}
+            td {{user.event}}
+            td {{user.date}}
+            td {{user.where}}
+            td {{user.hour}}
+
+      p(ng-show='!device.registers') No hay registros para este dispositivo.
+ 
