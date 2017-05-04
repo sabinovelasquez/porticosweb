@@ -19,4 +19,5 @@ module.exports = () => {
   require('angularfire');
   // polyfills
   require('../polyfills/es2015_ArrayPrototype_find');
+  require('./config/fbsettings');
 };

@@ -1,5 +1,4 @@
 require('./vendor')();
-require('./config/fbsettings');
 
 const ngModule = angular.module('app', [
   'duScroll',
